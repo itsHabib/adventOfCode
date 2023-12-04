@@ -25,7 +25,22 @@ func part1() {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		sum += getDigit(line)
+		var nums []int
+		for i := range line {
+			if unicode.IsDigit(rune(line[i])) {
+				nums = append(nums, int(line[i]-'0'))
+				continue
+			}
+		}
+
+		digit := nums[0] * 10
+		second := nums[0]
+		if len(nums) > 1 {
+			second = nums[len(nums)-1]
+		}
+
+		sum += digit + second
+
 	}
 	if err := scanner.Err(); err != nil {
 		log.Fatalf("encountered scanner err: %v", err)
