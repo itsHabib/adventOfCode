@@ -190,10 +190,10 @@ func countEnclosedArea(grid [][]byte, longestPath [][]int) int {
 
 func isInsideLoop(grid [][]byte, i, j int, longestPath [][]int) bool {
 	count := 0
-	curI, curJ := i, j
+	curJ := j
 
-	for curI < len(grid) && curJ < len(grid[0]) {
-		if inPath(longestPath, curI, curJ) && (grid[curI][curJ] == 'L' || grid[curI][curJ] == 'J' || grid[curI][curJ] == '|') {
+	for curJ < len(grid[0]) {
+		if inPath(longestPath, i, curJ) && (grid[i][curJ] == 'L' || grid[i][curJ] == 'J' || grid[i][curJ] == '|') {
 			count++
 		}
 		curJ++
