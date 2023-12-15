@@ -19,6 +19,7 @@ func part1() {
 	if err != nil {
 		log.Fatalf("unable to get input file: %v", err)
 	}
+	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
 	var sum int
@@ -77,6 +78,7 @@ func part2() {
 	if err != nil {
 		log.Fatalf("unable to get input file: %v", err)
 	}
+	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
 	var sum int

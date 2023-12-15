@@ -20,6 +20,7 @@ func part1() {
 	if err != nil {
 		log.Fatalf("unable to open input file: %v", err)
 	}
+	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
 	var times []int
@@ -56,6 +57,7 @@ func part2() {
 	if err != nil {
 		log.Fatalf("unable to open input file: %v", err)
 	}
+	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
 	var (
